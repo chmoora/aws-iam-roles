@@ -9,6 +9,7 @@ export class ScIamRolesStack extends cdk.Stack {
 
     const params = this.node.tryGetContext('Parameters');
 
+    // IAM role for Service Catalog launch constrain
     const provisionerRole = new iam.Role(this, 'ScProvisionerRle', {
       roleName: params.Provisioning.RoleName,
       description: 'Provisioning role for AWS Service Catalog',
@@ -16,7 +17,7 @@ export class ScIamRolesStack extends cdk.Stack {
       assumedBy: new iam.CompositePrincipal(
         new iam.ServicePrincipal('servicecatalog.amazonaws.com')
       )
-    })
+    });
 
     for (const managedPolicy of params.Provisioning.ManagedPolicies) {
       provisionerRole.addManagedPolicy(
