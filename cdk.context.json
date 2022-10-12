@@ -1,0 +1,11 @@
+{
+  "Parameters": {
+    "Provisioning": {
+      "RoleName": "SC-Provisioner",
+      "ManagedPolicies": [
+        "AWSCloudFormationFullAccess",
+        "AmazonS3FullAccess"
+      ]
+    }
+  }
+}
