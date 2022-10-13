@@ -1,14 +1,46 @@
-# Welcome to your CDK TypeScript project
+# AWS IAM Roles
 
-This is a blank project for CDK development with TypeScript.
+IAM roles for AWS Service Catalog launch constrains required on AWS tenant accounts.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Framework
 
-## Useful commands
+AWS Cloud Development Framework v2
+[https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html](
+https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## Deployment
+
+1. Edit `cdk.context.json` file to modify parameters.
+
+2. Install NPM dependencies and build the CDK application
+```bash
+npm install && npm run build
+```
+
+3. Synthesize CDK app/stack to generate CF templates
+```
+npx cdk synth --all
+```
+
+4. Authenticate to your AWS account, define AWS CLI profile & region
+```
+export AWS_PROFILE={profile_name}
+export AWS_REGION={region_name}
+```
+
+5. Review AWS resources to deploy
+```
+npx cdk diff --all
+```
+
+6. Deploy CDK app/stacks to your AWS account
+```
+npx cdk deploy --all
+```
+
+## Cleanup
+
+1. Destroy CDK app/stacks on your AWS account
+```
+npx cdk destroy --all
+```
