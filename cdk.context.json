@@ -4,7 +4,8 @@
       "RoleName": "SC-Provisioner",
       "ManagedPolicies": [
         "AWSCloudFormationFullAccess",
-        "AmazonS3FullAccess"
+        "AmazonS3FullAccess",
+        "AmazonSSMFullAccess"
       ]
     }
   }
